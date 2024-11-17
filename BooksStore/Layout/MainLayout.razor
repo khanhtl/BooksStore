@@ -10,14 +10,13 @@
         </div>
 
         <article class="content px-4">
-            <CascadingValue Value="@_backroundStyle">
-                @Body
-            </CascadingValue>
+            @Body
         </article>
     </main>
 </div>
 
 @code
 {
-    private string _backroundStyle = "background-color:#f2f2f2";
+    private string _backroundStyle =
+    "background-color:#f2f2f2";
 }

@@ -9,10 +9,20 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "currentCount")]
+    public int? CounterInitialValue { get; set; }
+
     private int currentCount = 0;
 
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    protected override void OnParametersSet()
+    {
+        if (CounterInitialValue != null)
+            currentCount = CounterInitialValue.Value;
     }
 }
